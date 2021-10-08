@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Gallery</title>
+      <link rel="stylesheet" href="images.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <div class="content">
+         <div class="images">
+            <img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BvcnQlMjBjbHVifGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80">
+            <img src="https://images.unsplash.com/photo-1604651684573-05470013b3b9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3BvcnQlMjBjbHVifGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80">
+            <img src="https://playo.imgix.net/SKNSPORTSCLUB20190812070406236222/sknsportsclub0.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Fstorage.googleapis.com%2Fplayoapp%2Flogo%2Fplayo-imgix-white.png&markalign=bottom%2Cright&markalpha=50&markfit=clip&markscale=20&markpad=12&markw=160&ixlib=react-8.6.4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFNnoOiVmOSThAOHMq8OriDzCCyilqewsR0g&usqp=CAU">
+            <img src="https://images2.minutemediacdn.com/image/upload/c_fill,w_912,h_516,f_auto,q_auto,g_auto/shape/cover/sport/5a4bb3fc08f1dbcaec000003.jpg">
+         </div>
+         <div class="btm-slides">
+            <span onclick="btm_slide(1)"></span>
+            <span onclick="btm_slide(2)"></span>
+            <span onclick="btm_slide(3)"></span>
+            <span onclick="btm_slide(4)"></span>
+            <span onclick="btm_slide(5)"></span>
+         </div>
+         <div class="sliders left" onclick="side_slide(-1)">
+            <span class="fas fa-angle-left"></span>
+         </div>
+         <div class="sliders right" onclick="side_slide(1)">
+            <span class="fas fa-angle-right"></span>
+         </div>
+      </div>
+      <script>
+         var indexValue = 1;
+         showImg(indexValue);
+         function btm_slide(e){showImg(indexValue = e);}
+         function side_slide(e){showImg(indexValue += e);}
+         function showImg(e){
+           var i;
+           const img = document.querySelectorAll('img');
+           const slider = document.querySelectorAll('.btm-slides span');
+           if(e > img.length){indexValue = 1}
+           if(e < 1){indexValue = img.length}
+           for(i = 0; i < img.length; i++){
+             img[i].style.display = "none";
+           }
+           for(i = 0; i < slider.length; i++){
+             slider[i].style.background = "rgba(255,255,255,0.1)";
+           }
+           img[indexValue-1].style.display = "block";
+           slider[indexValue-1].style.background = "white";
+         }
+      </script>
+   </body>
+</html>
